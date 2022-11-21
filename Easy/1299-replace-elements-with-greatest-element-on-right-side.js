@@ -1,0 +1,39 @@
+// https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/
+
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+// O(1) Space - O(N) Time
+var replaceElements = function (arr) {
+  let max = -1
+  let temp = 0;
+
+  for (let i = arr.length - 1; i > -1; i--) {
+    temp = arr[i];
+    arr[i] = max;
+    max = Math.max(temp, max);
+  }
+  return arr;
+};
+
+const arr = [17, 18, 5, 4, 6, 1];
+console.log(replaceElements(arr));
+
+/*
+Example 1:
+Input: arr = [17,18,5,4,6,1]
+Output: [18,6,6,6,1,-1]
+Explanation: 
+- index 0 --> the greatest element to the right of index 0 is index 1 (18).
+- index 1 --> the greatest element to the right of index 1 is index 4 (6).
+- index 2 --> the greatest element to the right of index 2 is index 4 (6).
+- index 3 --> the greatest element to the right of index 3 is index 4 (6).
+- index 4 --> the greatest element to the right of index 4 is index 5 (1).
+- index 5 --> there are no elements to the right of index 5, so we put -1.
+
+Example 2:
+Input: arr = [400]
+Output: [-1]
+Explanation: There are no elements to the right of index 0.
+*/
