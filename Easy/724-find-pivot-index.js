@@ -19,8 +19,6 @@ var pivotIndex = function (nums) {
     sum = sum + nums[i];
   }
 
-  // console.log(leftSum);
-
   return index;
 };
 
